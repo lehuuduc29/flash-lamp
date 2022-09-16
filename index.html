@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Battery {
+
+        constructor() {
+            this.energy = 0;
+        }
+
+        setEnergy(energy) {
+            this.energy = energy;
+        };
+
+        getEnergy() {
+            console.log('energy: ' + this.energy);
+            return this.energy;
+        };
+
+        decreaseEnergy() {
+            if (this.energy > 0) {
+                setInterval(() => {
+                    this.energy -= 2;
+                }, 1000);
+            }
+        }
+
+    };
+
+    class FlashLamp {
+
+        constructor() { 
+            this.battery = 0;
+            this.status = false;
+        }
+
+        setBattery(battery) {
+            this.battery = battery;  
+            console.log('battery: ' + this.battery)
+        };
+
+        light() {
+            if (this.status) {
+                alert("Lighting");
+            } else {
+                alert("Not lighting");
+            }
+        };
+
+        getStatus() {
+            if(this.battery > 0){
+                this.status = true;
+            }else{
+                this.status = false;
+            }
+            console.log('status: ' + this.status);
+            return this.status;
+        };
+    };
+
+    let battery = new Battery();
+    battery.setEnergy(10);
+
+    let flashLamp = new FlashLamp();
+    flashLamp.setBattery(battery.getEnergy());
+    flashLamp.getStatus();
+    flashLamp.light();
+
+    
+</script>
+
+</html>
